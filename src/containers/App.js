@@ -1,17 +1,11 @@
 import React, { Component } from 'react';
-import SideNav from "../components/side_nav";
-import './App.css';
+import SideNav from '../components/side_nav';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
           <SideNav />
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
       </div>
     );
   }
