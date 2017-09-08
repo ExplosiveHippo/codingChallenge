@@ -12,13 +12,42 @@ class SideNav extends Component {
 		}
 	}
 
+	renderGeneral() {
+		let generalItems = Data.filter(menuNode => {
+			console.log(menuNode.containing_object);
+			return !menuNode.containing_object && menuNode.data_type !== 'object';
+		})
+
+		return generalItems.map(item => {
+			return <p>{item.name}</p>;
+		})
+	}
+
 	renderSection() {
+
+		let sections = Data.filter(menuNode => {
+			//console.log(menuNode.containing_object);
+			return menuNode.containing_object;
+		});
+
+		let generalItems = Data.filter(menuNode => {
+			console.log(menuNode.containing_object);
+			return !menuNode.containing_object && menuNode.data_type !== 'object';
+		})
+
+		console.log("sections: ", sections);
+
+		console.log("general: ", generalItems);
+
 		 return Data.map(menuNode => {
 			if(menuNode.containing_object){
 				let name = menuNode.containing_object.name;
+
 				return(
 					<h2>{name}</h2>
 				);
+			}else{
+				return <p>{menuNode.name}</p>
 			}
 		});
 	}
@@ -26,7 +55,9 @@ class SideNav extends Component {
 	render() {
 		return (
 			<div className="sidemenu">
-				{this.renderSection()}
+				<h2>General</h2>
+				{this.renderGeneral()}
+
 			</div>
 		)
 	}
