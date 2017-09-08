@@ -17,7 +17,7 @@ class SideNav extends Component {
 		})
 
 		return generalItems.map(item => {
-			return <p key={item.id}>{item.name}</p>;
+			return <button key={item.id}>{item.name}</button>;
 		})
 	}
 
@@ -32,7 +32,9 @@ class SideNav extends Component {
 			return(
 				<div key={menuNode.id}>
 					<h2 id={menuNode.id}>{menuNode.name}</h2>
-					{this.renderSubNav(menuNode.containing_object.properties)}
+					<div className="subNav">
+						{this.renderSubNav(menuNode.containing_object.properties)}
+					</div>
 				</div>
 			);
 		});
@@ -41,7 +43,7 @@ class SideNav extends Component {
 
 	renderSubNav(menuNode) {
 		return menuNode.map(subNode => {
-			return <p key={subNode.id}>{subNode.name}</p>;
+			return <button key={subNode.id}>{subNode.name}</button>;
 		});
 	}
 
