@@ -8,47 +8,40 @@ class SideNav extends Component {
 
 		//TO DO: load data via redux
 		this.state = {
-			menuSections: []
 		}
 	}
 
 	renderGeneral() {
 		let generalItems = Data.filter(menuNode => {
-			console.log(menuNode.containing_object);
 			return !menuNode.containing_object && menuNode.data_type !== 'object';
 		})
 
 		return generalItems.map(item => {
-			return <p>{item.name}</p>;
+			return <p key={item.id}>{item.name}</p>;
 		})
 	}
 
-	renderSection() {
+	renderSections() {
 
 		let sections = Data.filter(menuNode => {
 			//console.log(menuNode.containing_object);
 			return menuNode.containing_object;
 		});
 
-		let generalItems = Data.filter(menuNode => {
-			console.log(menuNode.containing_object);
-			return !menuNode.containing_object && menuNode.data_type !== 'object';
-		})
+		 return sections.map(menuNode => {
+			return(
+				<div key={menuNode.id}>
+					<h2 id={menuNode.id}>{menuNode.name}</h2>
+					{this.renderSubNav(menuNode.containing_object.properties)}
+				</div>
+			);
+		});
+	}
 
-		console.log("sections: ", sections);
 
-		console.log("general: ", generalItems);
-
-		 return Data.map(menuNode => {
-			if(menuNode.containing_object){
-				let name = menuNode.containing_object.name;
-
-				return(
-					<h2>{name}</h2>
-				);
-			}else{
-				return <p>{menuNode.name}</p>
-			}
+	renderSubNav(menuNode) {
+		return menuNode.map(subNode => {
+			return <p key={subNode.id}>{subNode.name}</p>;
 		});
 	}
 
@@ -57,7 +50,7 @@ class SideNav extends Component {
 			<div className="sidemenu">
 				<h2>General</h2>
 				{this.renderGeneral()}
-
+				{this.renderSections()}
 			</div>
 		)
 	}
