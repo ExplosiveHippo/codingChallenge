@@ -1,14 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { fetchMenu } from '../actions/index';
 
 class SideNav extends Component {
-
-	constructor(props) {
-		super(props);
-		this.props.fetchMenu();
-	}
 
 	sectionSelect(el,sectionId) {
 		document.querySelectorAll('.sectionParent')
@@ -87,14 +79,6 @@ class SideNav extends Component {
 	}
 }
 
-function mapStateToProps(state) {
-	return {
-		menu: state.menu
-	}
-}
 
-function mapDispatchToProps(dispatch) {
-	return bindActionCreators({fetchMenu}, dispatch);
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(SideNav);
+export default SideNav;
