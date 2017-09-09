@@ -17,8 +17,22 @@ button {
 
 .App {
 	display: flex;
+	text-transform: capitalize;
 }
 
-.subNav{
+.sideMenu button {
+	text-transform: capitalize;
+}
+
+.subNav {
 	display: none;
+	margin-left: 10px;
+}
+
+.active + .subNav {
+	display: block;
+}
+
+.sectionParent {
+	font-weight: 700;
 }

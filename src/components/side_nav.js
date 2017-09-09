@@ -10,6 +10,15 @@ class SideNav extends Component {
 		this.props.fetchMenu();
 	}
 
+	sectionSelect(el,sectionId) {
+		document.getElementById(el.id).classList.toggle('active');
+		console.log('group selected: ', sectionId);
+	}
+
+	childSelect() {
+		console.log('child selected');
+	}
+
 	renderGeneral() {
 		let generalItems = this.props.menu.filter(menuNode => {
 			return !menuNode.containing_object && menuNode.data_type !== 'object';
@@ -21,7 +30,6 @@ class SideNav extends Component {
 	}
 
 	renderSections() {
-		console.log(this.props.menu);
 		let sections = this.props.menu.filter(menuNode => {
 			return menuNode.containing_object;
 		});
@@ -29,8 +37,8 @@ class SideNav extends Component {
 		 return sections.map(menuNode => {
 			return(
 				<div key={menuNode.id}>
-					<button id={menuNode.id}>{menuNode.name}</button>
-					<div className="subNav">
+					<button className='sectionParent' id={menuNode.id} onClick={(event) => this.sectionSelect(event.target,menuNode.id)}>{menuNode.name}</button>
+					<div className='subNav'>
 						{this.renderSubNav(menuNode.containing_object.properties)}
 					</div>
 				</div>
@@ -41,16 +49,16 @@ class SideNav extends Component {
 
 	renderSubNav(menuNode) {
 		return menuNode.map(subNode => {
-			return <button key={subNode.id}>{subNode.name}</button>;
+			return <button key={subNode.id} onClick={this.childSelect}>{subNode.name}</button>;
 		});
 	}
 
 	render() {
 		if(this.props.menu.length > 0){
 			return (
-				<div className="sidemenu">
+				<div className='sideMenu'>
 					<button>General</button>
-					<div className="subNav">
+					<div className='subNav'>
 						{this.renderGeneral()}
 					</div>
 					{this.renderSections()}
