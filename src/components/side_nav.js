@@ -11,7 +11,12 @@ class SideNav extends Component {
 	}
 
 	sectionSelect(el,sectionId) {
-		document.getElementById(el.id).classList.toggle('active');
+		document.querySelectorAll('.sectionParent')
+			.forEach(el => el.classList.remove('active'));
+
+		document.getElementById(el.id)
+			.classList.add('active');
+
 		console.log('group selected: ', sectionId);
 	}
 
@@ -20,36 +25,45 @@ class SideNav extends Component {
 	}
 
 	renderGeneral() {
-		let generalItems = this.props.menu.filter(menuNode => {
-			return !menuNode.containing_object && menuNode.data_type !== 'object';
+		let generalItems = this.props.menu
+			.filter(menuNode => {
+				return !menuNode.containing_object && menuNode.data_type !== 'object';
 		})
 
-		return generalItems.map(item => {
-			return <button key={item.id}>{item.name}</button>;
+		return generalItems
+			.map(item => {
+				return <button key={item.id}>{item.name}</button>;
 		})
 	}
 
 	renderSections() {
-		let sections = this.props.menu.filter(menuNode => {
-			return menuNode.containing_object;
+		let sections = this.props.menu
+			.filter(menuNode => {
+				return menuNode.containing_object;
 		});
 
-		 return sections.map(menuNode => {
-			return(
-				<div key={menuNode.id}>
-					<button className='sectionParent' id={menuNode.id} onClick={(event) => this.sectionSelect(event.target,menuNode.id)}>{menuNode.name}</button>
-					<div className='subNav'>
-						{this.renderSubNav(menuNode.containing_object.properties)}
+		 return sections
+		 	.map(menuNode => {
+				return(
+					<div key={menuNode.id}>
+
+						<button className='sectionParent' id={menuNode.id} onClick={(event) => 
+							this.sectionSelect(event.target,menuNode.id)}>{menuNode.name}</button>
+
+						<div className='subNav'>
+							{this.renderSubNav(menuNode.containing_object.properties)}
+						</div>
+
 					</div>
-				</div>
-			);
+				);
 		});
 	}
 
 
 	renderSubNav(menuNode) {
-		return menuNode.map(subNode => {
-			return <button key={subNode.id} onClick={this.childSelect}>{subNode.name}</button>;
+		return menuNode
+			.map(subNode => {
+				return <button key={subNode.id} onClick={this.childSelect}>{subNode.name}</button>;
 		});
 	}
 
@@ -57,11 +71,15 @@ class SideNav extends Component {
 		if(this.props.menu.length > 0){
 			return (
 				<div className='sideMenu'>
+
 					<button>General</button>
+
 					<div className='subNav'>
 						{this.renderGeneral()}
 					</div>
+
 					{this.renderSections()}
+
 				</div>
 			)
 		}else return <div>Loading...</div>
