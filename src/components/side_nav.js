@@ -3,18 +3,22 @@ import React, { Component } from 'react';
 class SideNav extends Component {
 
 	sectionSelect(el,sectionId) {
-		document.querySelectorAll('.sectionParent')
-			.forEach(el => el.classList.remove('active'));
-
-		document.getElementById(el.id)
-			.classList.add('active');
-
-		console.log('group selected: ', sectionId);
+		if(el.classList.contains('active')) el.classList.remove('active');
+		else{
+			console.log("in here");
+			document.querySelectorAll('.sectionParent')
+			.forEach(item => {
+				item.classList.remove('active');
+				if(el.id === item.id) item.classList.add('active');
+			});
+		}
 	}
 
 	childSelect() {
 		console.log('child selected');
 	}
+
+	//TO DO: Refactor General to work similar to our other sections
 
 	renderGeneral() {
 		let generalItems = this.props.menu
@@ -24,7 +28,7 @@ class SideNav extends Component {
 
 		return generalItems
 			.map(item => {
-				return <button key={item.id}>{item.name}</button>;
+			return <button key={item.id}>{item.name}</button>;
 		})
 	}
 
@@ -64,7 +68,7 @@ class SideNav extends Component {
 			return (
 				<div className='sideMenu'>
 
-					<button>General</button>
+					<button className='sectionParent'>General</button>
 
 					<div className='subNav'>
 						{this.renderGeneral()}
