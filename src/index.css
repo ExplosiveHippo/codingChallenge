@@ -19,6 +19,14 @@ button:hover {
 	text-decoration: underline;
 }
 
+h2 {
+	font-size: 18px;
+}
+
+p, li {
+	font-size: 14px;
+}
+
 .App {
 	display: flex;
 	text-transform: capitalize;
