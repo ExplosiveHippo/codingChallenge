@@ -2,17 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchMenu } from '../actions/index';
-import Data from '../schema.json';
 
 class SideNav extends Component {
 
 	constructor(props) {
 		super(props);
-		console.log(this.state);
+		this.props.fetchMenu();
 	}
 
 	renderGeneral() {
-		let generalItems = Data.filter(menuNode => {
+		let generalItems = this.props.menu.filter(menuNode => {
 			return !menuNode.containing_object && menuNode.data_type !== 'object';
 		})
 
@@ -22,9 +21,8 @@ class SideNav extends Component {
 	}
 
 	renderSections() {
-
-		let sections = Data.filter(menuNode => {
-			//console.log(menuNode.containing_object);
+		console.log(this.props.menu);
+		let sections = this.props.menu.filter(menuNode => {
 			return menuNode.containing_object;
 		});
 
@@ -48,15 +46,24 @@ class SideNav extends Component {
 	}
 
 	render() {
-		return (
-			<div className="sidemenu">
-				<button>General</button>
-				<div className="subNav">
-					{this.renderGeneral()}
+		if(this.props.menu.length > 0){
+			return (
+				<div className="sidemenu">
+					<button>General</button>
+					<div className="subNav">
+						{this.renderGeneral()}
+					</div>
+					{this.renderSections()}
 				</div>
-				{this.renderSections()}
-			</div>
-		)
+			)
+		}else return <div>Loading...</div>
+		
+	}
+}
+
+function mapStateToProps(state) {
+	return {
+		menu: state.menu
 	}
 }
 
@@ -64,4 +71,4 @@ function mapDispatchToProps(dispatch) {
 	return bindActionCreators({fetchMenu}, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(SideNav);
+export default connect(mapStateToProps, mapDispatchToProps)(SideNav);

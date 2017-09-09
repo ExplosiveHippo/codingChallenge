@@ -1,5 +1,4 @@
 import Data from '../schema.json';
-console.log(Data);
 export const FETCH_MENU = 'FETCH_MENU';
 
 export function fetchMenu() {
