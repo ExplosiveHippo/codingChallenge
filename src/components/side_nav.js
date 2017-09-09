@@ -18,8 +18,8 @@ class SideNav extends Component {
 		this.props.fetchContent(sectionId)
 	}
 
-	childSelect() {
-		console.log('child selected');
+	childSelect(hash) {
+		window.location.hash = "#id" + hash;
 	}
 
 	//TO DO: Refactor General to work similar to our other sections
@@ -47,7 +47,7 @@ class SideNav extends Component {
 				return(
 					<div key={menuNode.id}>
 
-						<button className='sectionParent' id={menuNode.id} onClick={(event) => 
+						<button className='sectionParent' id={'id' + menuNode.id} onClick={(event) => 
 							this.sectionSelect(event.target,menuNode.id)}>{menuNode.name}</button>
 
 						<div className='subNav'>
@@ -63,7 +63,7 @@ class SideNav extends Component {
 	renderSubNav(menuNode) {
 		return menuNode
 			.map(subNode => {
-				return <button key={subNode.id} onClick={this.childSelect}>{subNode.name}</button>;
+				return <button key={subNode.id} onClick={() => this.childSelect(subNode.id)}>{subNode.name}</button>;
 		});
 	}
 

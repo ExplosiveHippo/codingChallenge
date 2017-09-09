@@ -4,7 +4,6 @@ class MainSection extends Component{
 
 	renderAppKeys(app_keys){
 		return app_keys.map(item =>{
-			console.log(item);
 			return(
 				<li>{item}</li>
 			)
@@ -14,9 +13,8 @@ class MainSection extends Component{
 	renderContentArea() {
 		let itemsShown = this.props.content;
 		return itemsShown.map(item => {
-			console.log(item);
 			return (
-				<div key={item.id} className="detailItem">
+				<div key={item.id} id={'id' + item.id} className="detailItem">
 					<h2>{item.name}</h2>
 					<p>Type: {item.data_type}</p>
 					<ul>
