@@ -17,7 +17,7 @@ class App extends Component {
       return (
        <div className="App">
           <SideNav menu={this.props.menu} />
-          <MainSection />
+          <MainSection content={this.props.activeSection} />
           </div>
         ) 
     }else return <div>Loading...</div>
@@ -26,7 +26,8 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
-    menu: state.menu
+    menu: state.menu,
+    activeSection: state.activeSection
   }
 }
 

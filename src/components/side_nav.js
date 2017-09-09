@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchContent } from '../actions/index';
 
 class SideNav extends Component {
 
 	sectionSelect(el,sectionId) {
 		if(el.classList.contains('active')) el.classList.remove('active');
 		else{
-			console.log("in here");
 			document.querySelectorAll('.sectionParent')
 			.forEach(item => {
 				item.classList.remove('active');
 				if(el.id === item.id) item.classList.add('active');
 			});
 		}
+
+		this.props.fetchContent(sectionId)
 	}
 
 	childSelect() {
@@ -83,6 +87,8 @@ class SideNav extends Component {
 	}
 }
 
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({fetchContent}, dispatch);
+}
 
-
-export default SideNav;
+export default connect(null, mapDispatchToProps)(SideNav);
