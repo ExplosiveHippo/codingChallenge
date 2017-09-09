@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchMenu } from '../actions/index';
 import Data from '../schema.json';
 
 class SideNav extends Component {
 
 	constructor(props) {
 		super(props);
-
-		//TO DO: load data via redux
-		this.state = {
-		}
+		console.log(this.state);
 	}
 
 	renderGeneral() {
@@ -31,7 +31,7 @@ class SideNav extends Component {
 		 return sections.map(menuNode => {
 			return(
 				<div key={menuNode.id}>
-					<h2 id={menuNode.id}>{menuNode.name}</h2>
+					<button id={menuNode.id}>{menuNode.name}</button>
 					<div className="subNav">
 						{this.renderSubNav(menuNode.containing_object.properties)}
 					</div>
@@ -50,12 +50,18 @@ class SideNav extends Component {
 	render() {
 		return (
 			<div className="sidemenu">
-				<h2>General</h2>
-				{this.renderGeneral()}
+				<button>General</button>
+				<div className="subNav">
+					{this.renderGeneral()}
+				</div>
 				{this.renderSections()}
 			</div>
 		)
 	}
 }
 
-export default SideNav;
+function mapDispatchToProps(dispatch) {
+	return bindActionCreators({fetchMenu}, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(SideNav);
