@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchMenu } from '../actions/index';
 import { fetchContent } from '../actions/index';
-import SideNav from '../components/side_nav';
+import SideNav from '../containers/side_nav';
 import MainSection from '../components/main_section';
 
 class App extends Component {

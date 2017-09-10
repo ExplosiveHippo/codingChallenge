@@ -1,3 +1,4 @@
+// Colors
 $white: #FFFFFF;
 $light_grey: #f5f5f5;
 $grey: #e8e8e8;
@@ -6,24 +7,24 @@ $teal: #6b9099;
 $light_blue: #f2f6f7;
 $pink: #bd75a0;
 
+//Grid
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 992px;
+$breakpoint-desktop-xl: 1200px;
+
 
 //TO DO: convert font sizes to REM
 
 body {
   margin: 0;
-  padding: 0;
   font-family: helvetica;
   background-color: $light_grey;
-
+  font-size: 14px;
 }
 
 .App {
 	display: flex;
 	text-transform: capitalize;
-
-	p, li {
-		font-size: 14px;
-	}
 
 	// SIDE NAV STYLES
 
@@ -42,7 +43,7 @@ body {
 			margin-bottom: 0;
 			font-weight: 300;
 			text-transform: uppercase;
-			font-size: 16px;
+			font-size: 1.143em;
 		}
 
 		button{
@@ -55,7 +56,7 @@ body {
 			cursor: pointer;
 			min-width: 100px;
 			text-align: left;
-			font-size: 14px;
+			font-size: 1em;
 			padding: 15px;
 			font-weight: 500;
 
@@ -92,8 +93,12 @@ body {
 
 	// MAIN SECTION STYLES
 	.mainSection {
-		padding: 30px 150px;
+		padding: 30px 30px;
 		width: 100%;
+
+		@media (min-width: $breakpoint-desktop-xl) {
+			padding: 30px 75px;
+		}
 
 		h2{
 			color: $teal;
@@ -107,33 +112,34 @@ body {
 			margin-bottom: 15px;
 
 			h2 {
-				color: $teal;
-				font-weight: 500;
-				font-size: 18px;
+				font-size: 1.286em;
 				padding: 10px;
 				margin: 0;
 			}
-			table {
-				width: 100%;
+		}
+
+	
+		table {
+			width: 100%;
+			padding: 10px;
+
+			thead {
+				background-color: $light_blue;
+				font-size: 1.071em;
+			}
+
+			td {
 				padding: 10px;
+				width: 33%;
+			}
 
-				thead {
-					background-color: $light_blue;
-					td{
-						padding: 10px;
-					}
-				}
-
-				code {
-					color: $pink;
-					font-size: 14px;
-				}
-				
-				li{
-					list-style: none;
-				}
+			code {
+				color: $pink;
+			}
+			
+			li{
+				list-style: none;
 			}
 		}
-		
 	}
 }

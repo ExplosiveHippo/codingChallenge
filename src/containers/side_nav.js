@@ -6,19 +6,15 @@ import { fetchContent } from '../actions/index';
 class SideNav extends Component {
 
 	sectionSelect(el,sectionId) {
-		if(el.classList.contains('active')) el.classList.remove('active');
-		else{
-			document.querySelectorAll('.sectionParent')
-			.forEach(item => {
-				item.classList.remove('active');
-				if(el.id === item.id) item.classList.add('active');
-			});
-		}
+		document.querySelectorAll('.sectionParent')
+		.forEach(item => {
+			item.classList.remove('active');
+			if(el.id === item.id) item.classList.add('active');
+		});
 
 		this.props.fetchContent(sectionId)
 	}
 
-	// TO DO: Highlight item when selected
 	childSelect(hash) {
 		window.location.hash = "#id" + hash;
 	}
