@@ -24,8 +24,6 @@ class SideNav extends Component {
 		window.location.hash = "#id" + hash;
 	}
 
-	//TO DO: Refactor General to work similar to our other sections
-
 	renderGeneral() {
 		const generalItems = this.props.menu
 			.filter(menuNode => {
@@ -61,7 +59,6 @@ class SideNav extends Component {
 		});
 	}
 
-
 	renderSubNav(menuNode) {
 		return menuNode
 			.map(subNode => {
@@ -70,7 +67,8 @@ class SideNav extends Component {
 	}
 
 	render() {
-		//TO DO: Maybe change to use an axios promise instead?
+		// the first time through the menu data won't be loaded, 
+		// let's show loading if that happens
 		if(this.props.menu.length > 0){
 			return (
 				<aside className='sideMenu'>
