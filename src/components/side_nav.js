@@ -48,7 +48,7 @@ class SideNav extends Component {
 					<div key={menuNode.id}>
 
 						<button className='sectionParent' id={'id' + menuNode.id} onClick={(event) => 
-							this.sectionSelect(event.target,menuNode.id)}>{menuNode.name}</button>
+							this.sectionSelect(event.target,menuNode.id)}>{menuNode.containing_object.name}</button>
 
 						<div className='subNav'>
 							{this.renderSubNav(menuNode.containing_object.properties)}
@@ -70,7 +70,8 @@ class SideNav extends Component {
 	render() {
 		if(this.props.menu.length > 0){
 			return (
-				<div className='sideMenu'>
+				<aside className='sideMenu'>
+					<h3>Field Groups</h3>
 
 					<button className='sectionParent'>General</button>
 
@@ -80,7 +81,7 @@ class SideNav extends Component {
 
 					{this.renderSections()}
 
-				</div>
+				</aside>
 			)
 		}else return <div>Loading...</div>
 		

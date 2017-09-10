@@ -17,6 +17,7 @@ class MainSection extends Component{
 				<div key={item.id} id={'id' + item.id} className="detailItem">
 					<h2>{item.name}</h2>
 					<p>Type: {item.data_type}</p>
+					<p>Usage</p>
 					<ul>
 						{this.renderAppKeys(item.app_keys)}
 					</ul>
@@ -30,15 +31,15 @@ class MainSection extends Component{
 	render() {
 		if(this.props.content.length > 0){
 			return(
-				<div className="mainSection">
+				<main className="mainSection">
 					{this.renderContentArea()}
-				</div>
+				</main>
 			);
 		}else{
 			return(
-				<div className="mainSection">
+				<main className="mainSection">
 					<p>Select an section in the left menu to view all properties for that section</p>
-				</div>
+				</main>
 			)
 		}  
 		
