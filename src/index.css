@@ -10,7 +10,7 @@ body {
   .App p, .App li {
     font-size: 14px; }
   .App .sideMenu {
-    width: 300px;
+    min-width: 300px;
     min-height: 100vh;
     height: 100%;
     padding: 30px 20px 20px;
@@ -60,7 +60,9 @@ body {
       font-weight: 500;
       text-align: left; }
     .App .mainSection article {
-      background-color: #FFFFFF; }
+      background-color: #FFFFFF;
+      border: 1px solid #e8e8e8;
+      margin-bottom: 15px; }
       .App .mainSection article caption {
         color: #6b9099;
         font-weight: 500;
@@ -69,6 +71,10 @@ body {
         margin: 0; }
       .App .mainSection article table {
         width: 100%;
-        padding: 10px;
-        margin-bottom: 15px;
-        border: 1px solid #e8e8e8; }
+        padding: 10px; }
+        .App .mainSection article table thead {
+          background-color: #f2f6f7; }
+          .App .mainSection article table thead td {
+            padding: 10px; }
+        .App .mainSection article table li {
+          list-style: none; }

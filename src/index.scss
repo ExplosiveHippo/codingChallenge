@@ -3,7 +3,7 @@ $light_grey: #f5f5f5;
 $grey: #e8e8e8;
 $dark_grey: #535156;
 $teal: #6b9099;
-
+$light_blue: #f2f6f7;
 
 body {
   margin: 0;
@@ -24,7 +24,7 @@ body {
 	// SIDE NAV STYLES
 
 	.sideMenu {
-		width: 300px;
+		min-width: 300px;
 		min-height: 100vh;
 		height: 100%;
 		padding: 30px 20px 20px;
@@ -98,6 +98,9 @@ body {
 
 		article {
 			background-color: $white;
+			border: 1px solid $grey;
+			margin-bottom: 15px;
+
 			caption {
 				color: $teal;
 				font-weight: 500;
@@ -108,9 +111,17 @@ body {
 			table {
 				width: 100%;
 				padding: 10px;
-				margin-bottom: 15px;
+
+				thead {
+					background-color: $light_blue;
+					td{
+						padding: 10px;
+					}
+				}
 				
-				border: 1px solid $grey;
+				li{
+					list-style: none;
+				}
 			}
 		}
 		
