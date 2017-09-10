@@ -13,9 +13,9 @@ class DetailBlock extends Component {
 	render(){
 		const item = this.props.item;
 		return(
-			<article>
+			<article key={item.id} id={'id' + item.id}>
 				<caption>{item.name}</caption>
-				<table key={item.id} id={'id' + item.id} className="detailItem">
+				<table>
 					<thead>
 						<tr>
 							<td>Type:</td>
