@@ -7,7 +7,7 @@ class MainSection extends Component {
 		let itemsShown = this.props.content.properties;
 		return itemsShown.map(item => {
 			return (
-				<DetailBlock item={item} />
+				<DetailBlock key={item.id} item={item} />
 			)
 		});
 	}

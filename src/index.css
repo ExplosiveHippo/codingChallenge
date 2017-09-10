@@ -43,6 +43,8 @@ body {
       display: none; }
       .App .sideMenu .subNav button {
         padding: 10px 25px 10px; }
+        .App .sideMenu .subNav button:hover, .App .sideMenu .subNav button .selected {
+          color: #bd75a0; }
     .App .sideMenu .active + .subNav {
       display: block; }
     .App .sideMenu .sectionParent {
@@ -63,7 +65,7 @@ body {
       background-color: #FFFFFF;
       border: 1px solid #e8e8e8;
       margin-bottom: 15px; }
-      .App .mainSection article caption {
+      .App .mainSection article h2 {
         color: #6b9099;
         font-weight: 500;
         font-size: 18px;
@@ -76,5 +78,8 @@ body {
           background-color: #f2f6f7; }
           .App .mainSection article table thead td {
             padding: 10px; }
+        .App .mainSection article table code {
+          color: #bd75a0;
+          font-size: 14px; }
         .App .mainSection article table li {
           list-style: none; }

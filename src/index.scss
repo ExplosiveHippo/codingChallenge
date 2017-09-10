@@ -4,6 +4,10 @@ $grey: #e8e8e8;
 $dark_grey: #535156;
 $teal: #6b9099;
 $light_blue: #f2f6f7;
+$pink: #bd75a0;
+
+
+//TO DO: convert font sizes to REM
 
 body {
   margin: 0;
@@ -64,6 +68,7 @@ body {
 			display: none;
 			button{
 				padding: 10px 25px 10px;
+				&:hover, .selected{ color: $pink }
 			}
 		}
 
@@ -101,7 +106,7 @@ body {
 			border: 1px solid $grey;
 			margin-bottom: 15px;
 
-			caption {
+			h2 {
 				color: $teal;
 				font-weight: 500;
 				font-size: 18px;
@@ -117,6 +122,11 @@ body {
 					td{
 						padding: 10px;
 					}
+				}
+
+				code {
+					color: $pink;
+					font-size: 14px;
 				}
 				
 				li{

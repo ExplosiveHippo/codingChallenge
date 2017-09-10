@@ -18,6 +18,7 @@ class SideNav extends Component {
 		this.props.fetchContent(sectionId)
 	}
 
+	// TO DO: Highlight item when selected
 	childSelect(hash) {
 		window.location.hash = "#id" + hash;
 	}

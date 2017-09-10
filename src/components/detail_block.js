@@ -14,7 +14,7 @@ class DetailBlock extends Component {
 		const item = this.props.item;
 		return(
 			<article key={item.id} id={'id' + item.id}>
-				<caption>{item.name}</caption>
+				<h2>{item.name}</h2>
 				<table>
 					<thead>
 						<tr>
@@ -27,7 +27,7 @@ class DetailBlock extends Component {
 						<tr>
 							<td>{item.data_type}</td>
 							<td>{this.renderAppKeys(item.app_keys)}</td>
-							<td>{item.name}</td>
+							<td><code>{item.name}</code></td>
 						</tr>
 
 					</tbody>
