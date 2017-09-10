@@ -3,14 +3,12 @@ import DetailBlock from './detail_block';
 
 class MainSection extends Component {
 
-	//TO DO: Make property block a reusable component
 	renderContentArea() {
 		let itemsShown = this.props.content.properties;
 		return itemsShown.map(item => {
 			return (
 				<DetailBlock item={item} />
 			)
-			
 		});
 	}
 	

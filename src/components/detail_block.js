@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class DetailBlock extends Component {
+class DetailBlock extends Component {
 
 	renderAppKeys(app_keys){
 		return app_keys.map(item =>{
@@ -13,16 +13,29 @@ export default class DetailBlock extends Component {
 	render(){
 		const item = this.props.item;
 		return(
-			<div key={item.id} id={'id' + item.id} className="detailItem">
-				<h4>{item.name}</h4>
-				<p>Type: {item.data_type}</p>
-				<p>Usage</p>
-				<ul>
-					{this.renderAppKeys(item.app_keys)}
-				</ul>
-				<p>EverTrueFieldName: {item.name}</p>
-			</div>
+			<article>
+				<caption>{item.name}</caption>
+				<table key={item.id} id={'id' + item.id} className="detailItem">
+					<thead>
+						<tr>
+							<td>Type:</td>
+							<td>Usage:</td>
+							<td>EverTrueFieldName:</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>{item.data_type}</td>
+							<td>{this.renderAppKeys(item.app_keys)}</td>
+							<td>{item.name}</td>
+						</tr>
+
+					</tbody>
+				</table>
+			</article>
 		);
 	}
 
 }
+
+export default DetailBlock;

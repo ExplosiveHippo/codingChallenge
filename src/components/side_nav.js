@@ -71,7 +71,7 @@ class SideNav extends Component {
 		if(this.props.menu.length > 0){
 			return (
 				<aside className='sideMenu'>
-					<h3>Field Groups</h3>
+					<h4>Field Groups</h4>
 
 					<button className='sectionParent'>General Info</button>
 

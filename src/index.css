@@ -16,7 +16,7 @@ body {
     padding: 30px 20px 20px;
     background-color: #e8e8e8;
     border-right: 2px solid #c2c2c2; }
-    .App .sideMenu h3 {
+    .App .sideMenu h4 {
       color: #FFFFFF;
       background-color: #6b9099;
       padding: 15px;
@@ -53,7 +53,22 @@ body {
         text-decoration: underline;
         font-weight: bold; }
   .App .mainSection {
-    margin-left: 200px; }
+    padding: 30px 150px;
+    width: 100%; }
     .App .mainSection h2 {
       color: #6b9099;
-      font-weight: 500; }
+      font-weight: 500;
+      text-align: left; }
+    .App .mainSection article {
+      background-color: #FFFFFF; }
+      .App .mainSection article caption {
+        color: #6b9099;
+        font-weight: 500;
+        font-size: 18px;
+        padding: 10px;
+        margin: 0; }
+      .App .mainSection article table {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #e8e8e8; }

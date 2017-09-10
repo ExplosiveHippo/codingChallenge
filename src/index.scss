@@ -31,7 +31,7 @@ body {
 		background-color: $grey;
 		border-right: 2px solid darken($grey,15%);
 
-		h3{
+		h4{
 			color: $white;
 			background-color: $teal;
 			padding: 15px;
@@ -87,11 +87,32 @@ body {
 
 	// MAIN SECTION STYLES
 	.mainSection {
-		margin-left: 200px;
+		padding: 30px 150px;
+		width: 100%;
 
 		h2{
 			color: $teal;
 			font-weight: 500;
+			text-align: left;
 		}
+
+		article {
+			background-color: $white;
+			caption {
+				color: $teal;
+				font-weight: 500;
+				font-size: 18px;
+				padding: 10px;
+				margin: 0;
+			}
+			table {
+				width: 100%;
+				padding: 10px;
+				margin-bottom: 15px;
+				
+				border: 1px solid $grey;
+			}
+		}
+		
 	}
 }
