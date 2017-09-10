@@ -33,7 +33,7 @@ class SideNav extends Component {
 
 		return generalItems
 			.map(item => {
-			return <button key={item.id}>{item.name}</button>;
+			return <button key={item.id} onClick={(event) => this.childSelect(item.id)}>{item.name}</button>;
 		})
 	}
 
@@ -74,7 +74,8 @@ class SideNav extends Component {
 				<aside className='sideMenu'>
 					<h4>Field Groups</h4>
 
-					<button className='sectionParent'>General Info</button>
+					<button className='sectionParent active' onClick={(event) => 
+							this.sectionSelect(event.target, null)}>General Info</button>
 
 					<div className='subNav'>
 						{this.renderGeneral()}

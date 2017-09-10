@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchMenu } from '../actions/index';
+import { fetchContent } from '../actions/index';
 import SideNav from '../components/side_nav';
 import MainSection from '../components/main_section';
 
@@ -10,6 +11,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.props.fetchMenu();
+    this.props.fetchContent(null);
   }
 
   render() {
@@ -32,7 +34,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({fetchMenu}, dispatch);
+  return bindActionCreators({fetchMenu, fetchContent}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
