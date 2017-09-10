@@ -8,7 +8,7 @@ export default function(state = {}, action) {
 				return item.containing_object && item.id === action.payload[1]
 			});
 
-			return data.containing_object.properties;
+			return {properties: data.containing_object.properties, name: data.containing_object.name};
 
 		default: return state;
 	}

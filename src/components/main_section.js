@@ -5,17 +5,18 @@ class MainSection extends Component{
 	renderAppKeys(app_keys){
 		return app_keys.map(item =>{
 			return(
-				<li>{item}</li>
+				<li key={item}>{item}</li>
 			)
 		});
 	}
 
+	//TO DO: Make property block a reusable component
 	renderContentArea() {
-		let itemsShown = this.props.content;
+		let itemsShown = this.props.content.properties;
 		return itemsShown.map(item => {
 			return (
 				<div key={item.id} id={'id' + item.id} className="detailItem">
-					<h2>{item.name}</h2>
+					<h4>{item.name}</h4>
 					<p>Type: {item.data_type}</p>
 					<p>Usage</p>
 					<ul>
@@ -29,9 +30,10 @@ class MainSection extends Component{
 	}
 	
 	render() {
-		if(this.props.content.length > 0){
+		if(this.props.content.properties){
 			return(
 				<main className="mainSection">
+					<h2>{this.props.content.name}</h2>
 					{this.renderContentArea()}
 				</main>
 			);

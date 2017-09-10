@@ -73,7 +73,7 @@ class SideNav extends Component {
 				<aside className='sideMenu'>
 					<h3>Field Groups</h3>
 
-					<button className='sectionParent'>General</button>
+					<button className='sectionParent'>General Info</button>
 
 					<div className='subNav'>
 						{this.renderGeneral()}

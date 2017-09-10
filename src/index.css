@@ -7,8 +7,6 @@ body {
 .App {
   display: flex;
   text-transform: capitalize; }
-  .App h2 {
-    font-size: 18px; }
   .App p, .App li {
     font-size: 14px; }
   .App .sideMenu {
