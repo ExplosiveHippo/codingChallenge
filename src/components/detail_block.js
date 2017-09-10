@@ -13,7 +13,7 @@ class DetailBlock extends Component {
 	render(){
 		const item = this.props.item;
 		return(
-			<article key={item.id} id={'id' + item.id}>
+			<article id={'id' + item.id}>
 				<h2>{item.name}</h2>
 				<table>
 					<thead>

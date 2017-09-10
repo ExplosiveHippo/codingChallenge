@@ -16,10 +16,10 @@ class App extends Component {
 
   render() {
       return (
-       <div className="App">
+       <section className="App">
           <SideNav menu={this.props.menu} />
           <MainSection content={this.props.activeSection} />
-        </div>
+        </section>
       ) 
   }
 }

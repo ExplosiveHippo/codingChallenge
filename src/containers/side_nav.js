@@ -5,7 +5,6 @@ import { fetchContent } from '../actions/index';
 
 class SideNav extends Component {
 
-	//TO DO: Scroll back to the top of the page
 	sectionSelect(el,sectionId) {
 		// Loop through sections and expand subnav for 
 		// selected section
@@ -14,6 +13,9 @@ class SideNav extends Component {
 			item.classList.remove('active');
 			if(el.id === item.id) item.classList.add('active');
 		});
+
+		//Scroll to top
+		document.body.scrollTop = document.documentElement.scrollTop = 0;
 
 		this.props.fetchContent(sectionId)
 	}
