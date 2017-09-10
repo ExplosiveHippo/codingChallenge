@@ -15,14 +15,12 @@ class App extends Component {
   }
 
   render() {
-    if(this.props.menu.length > 0){
       return (
        <div className="App">
           <SideNav menu={this.props.menu} />
           <MainSection content={this.props.activeSection} />
-          </div>
-        ) 
-    }else return <div>Loading...</div>
+        </div>
+      ) 
   }
 }
 

@@ -5,7 +5,10 @@ import { fetchContent } from '../actions/index';
 
 class SideNav extends Component {
 
+	//TO DO: Scroll back to the top of the page
 	sectionSelect(el,sectionId) {
+		// Loop through sections and expand subnav for 
+		// selected section
 		document.querySelectorAll('.sectionParent')
 		.forEach(item => {
 			item.classList.remove('active');
@@ -22,7 +25,7 @@ class SideNav extends Component {
 	//TO DO: Refactor General to work similar to our other sections
 
 	renderGeneral() {
-		let generalItems = this.props.menu
+		const generalItems = this.props.menu
 			.filter(menuNode => {
 				return !menuNode.containing_object && menuNode.data_type !== 'object';
 		})
@@ -34,7 +37,7 @@ class SideNav extends Component {
 	}
 
 	renderSections() {
-		let sections = this.props.menu
+		const sections = this.props.menu
 			.filter(menuNode => {
 				return menuNode.containing_object;
 		});
@@ -65,6 +68,7 @@ class SideNav extends Component {
 	}
 
 	render() {
+		//TO DO: Maybe change to use an axios promise instead?
 		if(this.props.menu.length > 0){
 			return (
 				<aside className='sideMenu'>

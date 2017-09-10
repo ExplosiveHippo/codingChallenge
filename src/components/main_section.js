@@ -4,7 +4,7 @@ import DetailBlock from './detail_block';
 class MainSection extends Component {
 
 	renderContentArea() {
-		let itemsShown = this.props.content.properties;
+		const itemsShown = this.props.content.properties;
 		return itemsShown.map(item => {
 			return (
 				<DetailBlock key={item.id} item={item} />
@@ -23,7 +23,7 @@ class MainSection extends Component {
 		}else{
 			return(
 				<main className="mainSection">
-					<p>Select an section in the left menu to view all properties for that section</p>
+					<p>Loading...</p>
 				</main>
 			)
 		}  
