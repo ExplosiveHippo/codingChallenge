@@ -17,11 +17,6 @@ body {
 	display: flex;
 	text-transform: capitalize;
 
-
-	h2 {
-
-	}
-
 	p, li {
 		font-size: 14px;
 	}
@@ -93,5 +88,10 @@ body {
 	// MAIN SECTION STYLES
 	.mainSection {
 		margin-left: 200px;
+
+		h2{
+			color: $teal;
+			font-weight: 500;
+		}
 	}
 }

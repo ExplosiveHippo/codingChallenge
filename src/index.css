@@ -54,3 +54,6 @@ body {
         font-weight: bold; }
   .App .mainSection {
     margin-left: 200px; }
+    .App .mainSection h2 {
+      color: #6b9099;
+      font-weight: 500; }
