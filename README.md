@@ -1,4 +1,4 @@
-# Eventrue Coding Challenge
+# Coding Challenge
 
 To run:
 
