@@ -69,11 +69,14 @@ class SideNav extends Component {
 	render() {
 		// the first time through the menu data won't be loaded, 
 		// let's show loading if that happens
+
+		// we pass in null for selectSection to indicate the general Info data
+		// throughout the application when we see null being passed around it likely means
+		// we are referencing our General info data, since it has no parentId
 		if(this.props.menu.length > 0){
 			return (
 				<aside className='sideMenu'>
 					<h4>Field Groups</h4>
-
 					<button className='sectionParent active' onClick={(event) => 
 							this.sectionSelect(event.target, null)}>General Info</button>
 

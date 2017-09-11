@@ -11,6 +11,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.props.fetchMenu();
+    // Throughout the app, when null is being passed
+    // into fetchContent, it means load the default Content, which is general info
     this.props.fetchContent(null);
   }
 

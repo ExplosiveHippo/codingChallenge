@@ -10,7 +10,7 @@ export default function(state = {}, action) {
 
 			let data;
 
-			// If the id is not null, it's a normal section 
+			// If the id exists, it's a normal section 
 			if(action.payload[1]){
 				data = action.payload[0].find(item =>{
 					return item.containing_object && item.id === action.payload[1]
