@@ -13,7 +13,7 @@ export default function(state = {}, action) {
 			// If the id exists, it's a normal section 
 			if(action.payload[1]){
 				data = action.payload[0].find(item =>{
-					return item.containing_object && item.id === action.payload[1]
+					return item.id === action.payload[1]
 				});
 
 			}else{ // The id is null, we need to build a containing_object object
