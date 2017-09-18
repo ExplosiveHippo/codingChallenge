@@ -32,7 +32,7 @@ class SideNav extends Component {
 
 		return generalItems
 			.map(item => {
-			return <button key={item.id} onClick={(event) => this.childSelect(item.id)}>{item.name}</button>;
+				return <button key={item.id} onClick={() => this.childSelect(item.id)}>{item.name}</button>;
 		})
 	}
 
