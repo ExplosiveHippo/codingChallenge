@@ -4,11 +4,12 @@ import DetailBlock from './detail_block';
 class MainSection extends Component {
 
 	renderContentArea() {
-		const itemsShown = this.props.content.properties;
-		return itemsShown.map(item => {
-			return (
-				<DetailBlock key={item.id} item={item} />
-			)
+
+		return this.props.content.properties
+			.map(item => {
+				return (
+					<DetailBlock key={item.id} item={item} />
+				)
 		});
 	}
 	
