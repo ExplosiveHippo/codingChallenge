@@ -78,7 +78,7 @@ class SideNav extends Component {
 				<aside className='sideMenu'>
 					<h4>Field Groups</h4>
 					<button className='sectionParent active' onClick={(event) => 
-							this.sectionSelect(event.target, null)}>General Info</button>
+						this.sectionSelect(event.target, null)}>General Info</button>
 
 					<div className='subNav'>
 						{this.renderGeneral()}
